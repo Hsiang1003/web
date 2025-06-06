@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>李香葦 - 個人網頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EDE7F6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: #F3E5F5;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .header-and-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .header img {
+            width: 60%;
+            /* 調整圖片尺寸 */
+            height: 250px;
+            /* 調整圖片尺寸 */
+            border-radius: 0;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
+        .header-info h1 {
+            margin: 0;
+            color: #673AB7;
+            font-size: 1.8em;
+            /* 調整字體大小 */
+        }
+
+        .header-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            /* 調整字體大小 */
+        }
+
+        .contact-info {
+            margin-left: 30px;
+            text-align: right;
+        }
+
+        .contact-info h2 {
+            font-size: 1.2em;
+            /* 調整字體大小 */
+            color: #040b12;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 0.85em;
+            /* 調整字體大小 */
+        }
+
+        .contact-info a {
+            color: #9C27B0;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 導航按鈕的樣式 */
+        .navbar .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            display: none;
+            padding-top: 10px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #01070d;
+            border-bottom: 2px solid #9575CD;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            /* 調整標題字體大小 */
+        }
+
+        .section h3 {
+            color: #444;
+            margin-top: 12px;
+            /* 調整間距 */
+            margin-bottom: 6px;
+            /* 調整間距 */
+            font-size: 1.1em;
+            /* 調整字體大小 */
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 15px;
+            /* 調整縮進 */
+        }
+
+        .section ul li {
+            margin-bottom: 5px;
+            /* 調整行間距 */
+        }
+
+        .date-range {
+            font-size: 0.75em;
+            /* 調整字體大小 */
+            color: #777;
+            margin-left: 5px;
+            font-style: italic;
+        }
+
+        .link {
+            color: #9C27B0;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* 參與活動照片區塊的樣式 */
+        .activity-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            /* 調整最小寬度 */
+            gap: 10px;
+            /* 調整圖片間距 */
+            margin-top: 15px;
+            /* 調整間距 */
+        }
+
+        .activity-photos-grid img {
+            width: 100%;
+            height: 120px;
+            /* 調整圖片高度 */
+            object-fit: cover;
+            border-radius: 4px;
+            /* 調整圓角 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            /* 調整陰影 */
+        }
+
+        .activity-photos-grid .photo-caption {
+            text-align: center;
+            font-size: 0.8em;
+            /* 調整字體大小 */
+            color: #555;
+            margin-top: 3px;
+            /* 調整間距 */
+        }
+
+        /* 將這些 CSS 加入到你的 <style> 標籤中 */
+        .carousel-item img {
+            max-height: 500px;
+            /* 限制輪播圖片的最大高度，防止過高 */
+            object-fit: cover;
+            /* 確保圖片填充空間並裁切多餘部分 */
+            width: 50%;
+            /* 確保圖片寬度佔滿 */
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* 給說明文字加半透明背景，讓文字更清晰 */
+            padding: 30px;
+            border-radius: 5px;
+            color: #fff;
+            /* 調整文字顏色以適應深色背景 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-and-contact">
+            <div class="header">
+                <img src="images/Personal photo.jpg" alt="您的頭像">
+                <div class="header-info">
+                    <h1>李香葦</h1>
+                    <p><strong>身份：</strong> 大學部二年級學生</p>
+                    <p><strong>就讀學校及科系：</strong>國立聯合大學 資訊管理學系</p>
+                    <p><strong>家鄉：</strong> 台南</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h2>聯絡資訊</h2>
+                <p><strong>電話:</strong> 0917030984 </p>
+                <p><strong>E-mail:</strong> <a href="mailto:lily.60116@gmsil.com">lily.60116@gmsil.com</a></p>
+                <p><strong>LINE ID:</strong>3121003 </p>
+            </div>
+        </div>
+
+        <div class="navbar">
+            <button class="btn btn-primary nav-button" data-target="self-introduction">自我介紹</button>
+            <button class="btn btn-secondary nav-button" data-target="education-background">教育背景</button>
+            <button class="btn btn-danger nav-button" data-target="experience-internship">成長經歷</button>
+            <button class="btn btn-warning nav-button" data-target="professional-skills"> 專業技能</button>
+            <button class="btn btn-info nav-button" data-target="projects-works">歷年專案作品</button>
+            <button class="btn btn-dark nav-button" data-target="awards-honors">獲獎榮譽</button>
+            <button class="btn btn-outline-secondary nav-button" data-target="activity-photos">活動照片</button>
+        </div>
+
+        <div id="self-introduction" class="section active">
+            <h2>自我介紹 (Self-Introduction)</h2>
+            <p>
+                請在這裡撰寫您的自我介紹，概述您的背景、興趣和目標。
+                例如：我是一名對 [領域] 充滿熱情的 [您的學校名稱] [您的科系] 大學生。
+                我積極參與專案，累積了 [技能] 的實務經驗，期待在 [目標領域] 持續成長。
+            </p>
+
+            <div id="mySelfieCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mySelfieCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#mySelfieCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#mySelfieCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/p1.jpg" class="d-block w-100" alt="照片1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>我的生活照</h5>
+                            <p>這是我在 [描述地點或活動] 的照片，我喜歡 [描述活動或心情]。</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/p2.jpg" class="d-block w-100" alt="照片2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>學習中的我</h5>
+                            <p>這是我在 [描述學習場景或專案] 的照片，展現了我對 [領域] 的熱情。</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/p3.jpg" class="d-block w-100" alt="照片3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>興趣愛好</h5>
+                            <p>除了學業，我也喜歡 [描述興趣愛好]，這張照片是在 [活動地點] 拍攝的。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#mySelfieCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mySelfieCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="education-background" class="section">
+            <h2>教育背景 Education Background</h2>
+            <ul>
+                <li>
+                    <strong>[您的學校名稱]</strong>, [城市] <span class="date-range">[入學年份] – [預計畢業年份]</span>
+                    <ul>
+                        <li>學士學位，主修 [您的主修科系]列出你/妳的學歷和學術成就，包括就讀的大學或學院、所獲學位、重
+                            要課程或專案。</li>
+                        <li>相關課程：[課程一], [課程二]</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="experience-internship" class="section">
+            <h2>成長經歷 Experience </h2>
+            <div class="experience-item">
+                <h3>[職位/實習生]</h3>
+                <p><strong>[公司/組織名稱]</strong>, [城市] <span class="date-range">[開始日期] – [結束日期]</span></p>
+                <ul>
+                    <li>描述您的主要職責和成就。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="professional-skills" class="section">
+            <h2>專業技能 Professional Skills</h2>
+            <ul>
+                <li><strong>程式語言：</strong> Python, Java, C++, JavaScript</li>
+                <li><strong>工具：</strong> Git, VS Code, Linux</li>
+                <li><strong>語言：</strong> 中文 (母語), 英文 ([程度])</li>
+            </ul>
+        </div>
+
+        <div id="projects-works" class="section">
+            <h2>專案作品 Projects over the years</h2>
+            <div class="project-item">
+                <h3>[專案/作品名稱一]</h3>
+                <p><span class="date-range">[時間]</span></p>
+                <ul>
+                    <li>簡要描述專案目標、您的貢獻和成果。</li>
+                    <li><a href="[專案連結]" target="_blank" class="link">連結</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="awards-honors" class="section">
+            <h2>獲獎與榮譽 Awards & Honors</h2>
+            <ul>
+                <li><strong>[獎項名稱一]</strong> <span class="date-range">[獲獎日期]</span> - [頒發單位]</li>
+            </ul>
+        </div>
+
+        <div id="activity-photos" class="section">
+            <h2>參與活動照片 Activity Photos</h2>
+            <p>以下是我參與活動的照片紀錄：</p>
+            <div class="activity-photos-grid">
+                <div>
+                    <img src="images/activity_photo_1.jpg" alt="活動照片1">
+                    <p class="photo-caption">活動名稱或簡述</p>
+                </div>
+                <div>
+                    <img src="images/activity_photo_2.jpg" alt="活動照片2">
+                    <p class="photo-caption">活動名稱或簡述</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 修正：選擇器改為 '.nav-button'
+            const navButtons = document.querySelectorAll('.nav-button');
+            const sections = document.querySelectorAll('.section');
+
+            // 修正：確保頁面載入時 '自我介紹' section 保持活躍
+            // 在 CSS 中已設為 active，這裡可以確保點擊行為正常
+            // 可以在這裡加一個點擊第一個按鈕的模擬，以確保初始顯示
+            const initialActiveButton = document.querySelector('.nav-button[data-target="self-introduction"]');
+            if (initialActiveButton) {
+                initialActiveButton.classList.add('active'); // 確保按鈕本身有 active 樣式
+            }
+
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // 移除所有按鈕的 'active' class
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    // 為當前點擊的按鈕添加 'active' class
+                    this.classList.add('active');
+
+                    // 隱藏所有 section
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    // 顯示目標 section
+                    const targetId = this.dataset.target;
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+
+            // 頁面載入時，如果沒有按鈕是 active 狀態，預設點擊第一個按鈕，確保初始顯示
+            // 這段程式碼可以確保當頁面載入時，第一個 section (自我介紹) 是顯示的
+            if (!document.querySelector('.nav-button.active')) {
+                const firstButton = document.querySelector('.nav-button');
+                if (firstButton) {
+                    firstButton.click(); // 模擬點擊第一個按鈕
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
